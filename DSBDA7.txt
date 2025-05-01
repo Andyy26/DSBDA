@@ -1,0 +1,50 @@
+import nltk
+import pandas as pd
+import re
+from nltk.tokenize import word_tokenize, sent_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer, WordNetLemmatizer
+from nltk import pos_tag
+
+
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger')
+
+
+text = "Tokenization is the first step in text analytics. The process of breaking down a text paragraph into smaller chunks such as words or sentences is called Tokenization."
+
+
+sentences = sent_tokenize(text)
+print(sentences)
+
+
+words = word_tokenize(text)
+print(words)
+
+
+stop_words = set(stopwords.words('english'))
+filtered_words = [w for w in words if w.lower() not in stop_words and w.isalpha()]
+print(filtered_words)
+
+
+ps = PorterStemmer()
+stemmed_words = [ps.stem(w) for w in filtered_words]
+print(stemmed_words)
+
+
+lemmatizer = WordNetLemmatizer()
+lemmatized_words = [lemmatizer.lemmatize(w) for w in filtered_words]
+print(lemmatized_words)
+
+
+tagged_words = pos_tag(filtered_words)
+print(tagged_words)
+
+
+
+
+
+
+

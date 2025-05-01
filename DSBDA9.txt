@@ -1,0 +1,35 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+titanic = sns.load_dataset('titanic')
+
+titanic.head()
+
+sns.countplot(titanic['survived'])
+
+titanic['sex'].value_counts().plot(kind='pie', autopct='%.2f')
+
+titanic = titanic.dropna()
+
+plt.hist(titanic['age'], bins=5)
+
+sns.histplot(titanic['age'])
+
+sns.barplot(x='pclass', y='age', data=titanic)
+
+sns.barplot(x='pclass', y='age', hue='sex', data=titanic)
+
+sns.boxplot(x='sex', y='age', data=titanic)
+
+sns.boxplot(x='sex', y='age', hue='survived', data=titanic)
+
+
+sns.distplot(titanic[titanic['survived'] == 0]['age'], hist=False, color='blue')
+sns.distplot(titanic[titanic['survived'] == 1]['age'], hist=False, color='orange')
+plt.show()
+
+pd.crosstab(titanic['pclass'], titanic['survived'])
+
+sns.heatmap(pd.crosstab(titanic['pclass'], titanic['survived']))
+
+sns.clustermap(pd.crosstab(titanic['parch'], titanic['survived']))

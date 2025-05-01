@@ -1,0 +1,27 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+df = pd.read_csv("/home/manoj/Desktop/Work/6th Sem/DSBDA/Student_Performance.csv")
+df.head()
+df.tail()
+df.columns.values
+df.describe()
+df.isnull()
+df.notnull()
+df.dropna()
+df.iloc[:10, :]
+df.sort_index(axis=1)
+df.sort_values(by="total_score")
+df["total_score"]
+print(np.where(df['total_score']>90))
+
+col = ['reading_score', 'science_score', 'total_score']
+df.boxplot(column = col)
+
+sns.histplot(df['science_score'])
+
+df.boxplot(column = ['science_score', 'reading_score', 'writing_score'])
+
+fig, axes = plt.subplots(figsize=(18, 10))
+axes.scatter(df['test_preparation_course'], df['total_score'])

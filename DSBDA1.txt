@@ -1,0 +1,22 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+weather = pd.read_csv("//home/manoj/Desktop/Work/6th Sem/DSBDA/weather_data.csv")
+df.head()
+df.tail()
+df.info()
+df.index
+df.columns.values
+df.shape
+df.dtypes
+df.isnull()
+df.isnull().any()
+df.isnull().sum()
+df.describe(include="all")
+df["weather"]
+df.sort_index(axis=1)
+weather.sort_values(by = "Temperature_C")
+weather.sort_values(by = "Location")
+df.loc[:, ["Date_Time", "Location", "Temperature_C"]]
+df.iloc[:5, :]

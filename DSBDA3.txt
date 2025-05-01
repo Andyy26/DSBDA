@@ -1,0 +1,28 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+df = pd.read_csv("/home/manoj/Desktop/Work/6th Sem/DSBDA/Employee_Salary_Dataset.csv")
+df.head()
+df.mean(numeric_only=True)
+df.median(numeric_only=True)
+df.min(numeric_only=True)
+df.max(numeric_only=True)
+df.std(numeric_only=True)
+df.describe(include="all")
+df.corr(numeric_only=True)
+df.loc[:, 'Age'].std()
+
+grouped = df.groupby('Age')['Salary'].agg(['mean', 'median', 'min', 'max', 'std'])
+print(grouped)
+
+dff = pd.read_csv("/home/manoj/Desktop/Work/6th Sem/DSBDA/iris.csv")
+dff.head()
+iris = dff.groupby('species')
+iris.describe(percentiles=[.25, .5, .75])
+iris.mean(numeric_only=True)
+iris.min(numeric_only=True)
+iris.max(numeric_only=True)
+iris.median(numeric_only=True)
+iris.describe(include="all")
+iris.quantile(numeric_only=True)

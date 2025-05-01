@@ -1,0 +1,27 @@
+Code ->
+
+object EvenOddChecker {
+  def main(args: Array[String]): Unit = {
+    println("Enter a number:")
+    val input = scala.io.StdIn.readInt()
+
+    if (input % 2 == 0)
+      println(s"$input is Even")
+    else
+      println(s"$input is Odd")
+  }
+}
+
+Step 1 - 
+nano EvenOddChecker.scala
+
+Step 2-
+Copy paste above code
+Ctrl + O, Enter, then Ctrl + X.
+
+Step 3-
+scalac EvenOddChecker.scala
+
+Step 4-
+scala EvenOddChecker
+
